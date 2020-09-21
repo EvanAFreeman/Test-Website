@@ -1,22 +1,21 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 //added lecture 155 to use second database
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 //using npm dotenv addon it lets it parse through and read the values
 if (process.env.NODE_ENV === 'test') {
-  require('dotenv').config({ path: '.env.test '});
+  require('dotenv').config({ path: '.env.test'});
 } else if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config({ path: '.env.devleopment '});
+  require('dotenv').config({ path: '.env.development'});
 }
 
 module.exports = (env) => {
   const isProduction = env === 'production';
   const CSSExtract = new ExtractTextPlugin('styles.css');
 
-  console.log('env', env);
   return {
     entry: './src/app.js',
     output: {
