@@ -10,6 +10,7 @@ import 'react-dates/lib/css/_datepicker.css'
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import { firebase } from './firebase/firebase';
+import LoadingPage from './components/LoadingPage';
 
 const store = configureStore();
 
@@ -42,7 +43,7 @@ const renderApp = () => {
     }
 };
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage/>, document.getElementById('app'));
 
 //lecture 162, changes the users authentication state
 //lecture 165 dispatches the login/logout to only allow logged in memebers to see pages
